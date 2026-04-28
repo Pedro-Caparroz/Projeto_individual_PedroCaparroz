@@ -1,0 +1,111 @@
+/* 
+* Vou armazenar variáveis que vão seguir ao longo da construção do site
+*/
+
+:root {
+    --cor-principal: #7abda0;
+    --cor-secundaria: #f0ebe0;
+    --cor-terciaria: #130b09;
+    --tamanho-max: 1200px;
+
+}
+
+
+.container_margem {
+    margin: 50px;
+
+}
+
+.hero_page {
+    position: relative;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-image: url(../assets/hero.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.hero_content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero_content h1 {
+    color: #f0ebe0;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.sub_titulo {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: 300;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.hero_content-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(13, 11, 9, 0.55) 0%,
+            rgba(13, 11, 9, 0.35) 40%,
+            rgba(13, 11, 9, 0.75) 80%,
+            rgba(13, 11, 9, 1) 100%);
+    z-index: 0;
+}
+
+.botao_hero {
+    color: #7abda0;
+    font-size: 16px;
+    background-color: transparent;
+    padding: 14px 30px;
+    border: 3px solid #7abda0;
+    border-radius: 5px;
+}
+
+.botao_hero:hover {
+    background-color: #7abda0;
+    color: black;
+}
+
+.contextualizacao_pt1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(231, 243, 200);
+}
+
+.contextualizacao_texto {
+    justify-content: baseline;
+}
+
+.contextualizacao_texto h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1b2c42;
+}
+
+.contextualizacao_texto p {
+    line-height: 1.75;
+    text-align: justify;
+    text-indent: 2em;
+    
+}
+
+.contextualizacao_texto p+p {
+    text-indent: 2em;
+}
+
+.contextualizacao_visual {
+    justify-content: right;
+}
