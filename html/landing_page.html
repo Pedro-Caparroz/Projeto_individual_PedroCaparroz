@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--preconnect pra estabelecer conexão com o google fonts antes de importar a fonte-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter..." rel="stylesheet">
     <link rel="stylesheet" href="../css/style_home.css">
-    <title>Document</title>
+    <script src="../js/home.js" defer></script> <!--Uso o defer para que o script carregue depois do html-->
+    <title>A desvalorização da moda</title>
 </head>
 
 <body>
@@ -33,17 +37,16 @@
                 Hoje, não sabemos nem o nome de quem costurou a roupa que vestimos.
             </div>
 
-            <button class="botao_hero">
+            <a href="#contexto1" class="botao_hero">
                 CLIQUE PARA ENTENDER O QUE ACONTECEU
-            </button>
-
+            </a>
         </div>
 
 
     </section>
 
 
-    <section class="contextualizacao_pt1">
+    <section class="contextualizacao_pt1" id="contexto1">
         <div class="container_margem">
             <div class="contextualizacao_texto">
                 <h3>A moda como arte intelectual</h3>
@@ -56,7 +59,14 @@
         </div>
         <div class="container_margem">
             <div class="contextualizacao_visual">
-                <p>carrosel de imagens talvez, ou cards</p>
+                <div id="cardsModa" class="carrosel_cards">
+
+                </div>
+                <div class="botoes_carrossel">
+                    <button onclick="card_anterior()">Anterior</button>
+                    <button onclick="proximo_card()">Proximo</button>
+                </div>
+
             </div>
         </div>
     </section>
