@@ -16,7 +16,6 @@
 
 .container_margem {
     max-width: var(--tamanho-max);
-    margin: 0 auto;
     padding: 80px 50px;
 }
 
@@ -66,12 +65,15 @@
 }
 
 .botao_hero {
-    color: #7abda0;
+    color: #130b09;
     font-size: 16px;
-    background-color: transparent;
+    background-color: #f0ebe0;
     padding: 14px 30px;
-    border: 3px solid #7abda0;
+    border: 3px solid #1a3328;
     border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3px 3px #130b09;
+    text-decoration: none;
 }
 
 .botao_hero:hover {
@@ -86,7 +88,11 @@
     width: 100%;
     align-items: center;
     background-color: #1a3328;
-    /* background-color: rgb(118, 173, 127); */
+    position: relative;
+    z-index: 5;
+    /* Garante que ela fique por cima da seção da vitronez */
+    /* Cria uma sombra forte que vaza para baixo, disfarçando o corte duro das cores */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
 }
 
 .contextualizacao_texto {
@@ -156,12 +162,16 @@ quando o mouse passar em cima do card, ele vai subir
 
 .paginacao {
     margin-top: 15px;
-    text-align: center;
-    font-size: 15px;
+    margin-left: auto;
+    /* Empurra o círculo para a direita do card */
+    font-size: 13px;
     background-color: aliceblue;
-    border-radius: 100%;
-    width: 10%;
-    padding: 10px 5px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -184,4 +194,109 @@ quando o mouse passar em cima do card, ele vai subir
 .botoes_carrossel button:hover {
     background-color: #7AB9BD;
     color: #1b2c42;
+}
+
+.apresentacao_vitonez {
+    padding-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: center;
+    background-color: rgb(26, 51, 40);
+    background: linear-gradient(to right,
+            rgba(67, 9, 2, 1) 0%,
+            rgba(67, 9, 2, 0.85) 40%,
+            rgba(26, 51, 40, 0.85) 60%,
+            rgba(26, 51, 40, 1) 100%);
+
+}
+
+.container_img_vitonez img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Para não amassar a imagem */
+
+    /* Faz a imagem subir 80px e invadir a seção verde de cima */
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+
+    /* Arredonda só a quina direita para dar uma cara mais orgânica */
+    border-top-right-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.apresentacao_vitonez_texto {
+    justify-content: baseline;
+    color: aliceblue;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.apresentacao_vitonez_texto h3 {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #f0ebe0;
+}
+
+.apresentacao_vitonez_texto p {
+    line-height: 1.75;
+    text-align: justify;
+    text-indent: 2em;
+
+}
+
+.apresentacao_vitonez_texto p+p {
+    text-indent: 2em;
+}
+
+.chamada_cadastro {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a3328;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0px -15px 20px -10px rgba(0, 0, 0, 0.6);
+}
+
+.chamada_cadastro_cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.chamada_cadastro_texto {
+    justify-content: baseline;
+    color: aliceblue;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.chamada_cadastro_titulo {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+/* Quero um CTA diferente dos outros botões, 
+  * com a cor de fundo preenchida e letras brancas
+  * Preciso arrumar isso */
+.botao_CTA {
+    background-color: aliceblue;
+    color: #1b2c42;
+    padding: 14px 30px;
+    border: 3px solid #7AB9BD;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }

@@ -48,8 +48,8 @@ const cards = [
     {
         periodo: "Hoje",
         titulo: "Retomando o Ritmo",
-        texto: "Para devolver o valor à moda, precisamos devolver o tempo para pensar, projetar e criar com significado.",
-        exemplo: "A Verso valoriza o processo intelectual, garantindo que o tempo de criação seja respeitado e celebrado.",
+        texto: "Como resposta à produção acelerada, um novo movimento ganha força. Criadores independentes resgatam o valor intelectual da moda, focando no tempo e no propósito de cada peça.",
+        exemplo: "Marcas focadas em slow fashion, como a <a href ='https://vitonez.com.br/' target ='_blank'>Vitonez</a>, demonstram que ir na contramão da indústria de massa não é apenas possível, mas essencial para devolver o protagonismo a quem cria.",
         status: "batalhando pela valorização"
     }
 
