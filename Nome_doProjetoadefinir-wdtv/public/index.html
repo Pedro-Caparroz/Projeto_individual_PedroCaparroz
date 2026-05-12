@@ -7,22 +7,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <!--preconnect pra estabelecer conexão com o google fonts antes de importar a fonte-->
     <link href="https://fonts.googleapis.com/css2?family=Inter..." rel="stylesheet">
-    <link rel="stylesheet" href="../css/style_home.css">
-    <script src="../js/home.js" defer></script> <!--Uso o defer para que o script carregue depois do html-->
+    <link rel="stylesheet" href="./css/style_home.css">
+    <script src="./js/home.js" defer></script> <!--Uso o defer para que o script carregue depois do html-->
     <title>A desvalorização da moda</title>
 </head>
 
 <body>
     <header>
-        <a href="">logo</a>
-        <a href="">Login/Cadastro</a>
-        <a href="">Introducao</a>
+        <div class="logo">
+            <img src="./assets/" alt="">
+        </div>
+        <div class="div_navbar">
+            <a href="/index.html">Inicial</a>
+            <a href="/login.html">Login</a>
+            <a href="/cadastro.html">Cadastro</a>
+        </div>
 
     </header>
 
-    <div>
-        O que é a moda?
-    </div>
 
 
 
@@ -74,7 +76,7 @@
     <section class="apresentacao_vitonez">
         <div class="container_img_vitonez">
             <div class="">
-                <img src="../assets/banner_vitonez.webp" alt="Imagem que representa a Marca Vitronez">
+                <img src="./assets/banner_vitonez.webp" alt="Imagem que representa a Marca Vitronez">
             </div>
         </div>
         <div class="container_margem">
@@ -101,7 +103,7 @@
             </div>
 
             <div class="chamada_cadastro_cta">
-                <button class="botao_CTA">
+                <button class="botao_CTA" onclick="clique_cta()">
                     Venha conhecer
                 </button>
             </div>

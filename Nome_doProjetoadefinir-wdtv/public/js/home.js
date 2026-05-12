@@ -3,6 +3,18 @@
 
 let card_atual = 0;
 
+// Variáveis que vou usar para captar dados e retornar na dashboard
+
+let cliques_CTA = 0
+
+function clique_cta() {
+
+
+    window.location.href = "cadastro.html";
+    cliques_CTA++;
+
+}
+
 
 
 // descobri que posso colocar os cards dentro de uma array, então vou usar essa lógica 

@@ -1,0 +1,31 @@
+var metricaModel = require("../models/metricaModel");
+
+function registrarClique(req, res) {
+    // Extraindo as informações que vêm do Frontend (pelo fetch)
+    var etapa = req.body.etapaServer;
+    var idUsuario = req.body.idUsuarioServer; // Pode vir undefined se for um clique anônimo na Landing Page
+
+    if (etapa == undefined) {
+        res.status(400).send("a etapa não foi registrada!");
+    } else {
+
+        metricaModel.registrarClique(etapa, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao registrar a métrica! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+
+}
+
+module.exports = {
+    registrarClique
+};
