@@ -9,9 +9,27 @@ let cliques_CTA = 0
 
 function clique_cta() {
 
+    fetch("metricas/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            etapaServer: 'clique_cta',
+            metricaServer: 'cliques_CTA'
+        })
+    })
+        .then(function (resposta) {
+            console.log('Métrica Registrada!')
+            window.location.href = "cadastro.html";
+        })
+        .catch(function (erro) {
+            console.log('Erro ao registrar métrica', erro)
+            window.location.href = "cadastro.html";
+        })
 
-    window.location.href = "cadastro.html";
-    cliques_CTA++;
+
+
 
 }
 
@@ -80,6 +98,7 @@ function mostrarCard() {
     const card = document.getElementById("cardsModa");
 
     card.innerHTML = `
+    
         <p class="periodo_card">${cards[card_atual].periodo}</p>
         <h4 class="titulo_card">${cards[card_atual].titulo}</h4>
         <p class="texto_card">${cards[card_atual].texto}</p>
@@ -87,10 +106,47 @@ function mostrarCard() {
         <p class="status_card">${cards[card_atual].status}</p>
         <div class="paginacao">${card_atual + 1} / ${cards.length}</div>
     `;
+    let porcentagem = ((card_atual + 1) / cards.length) * 100;
+    document.getElementById("barra_de_preenchimento").style.width = `${porcentagem}%`;
 }
 
 //executo a função logo no ínicio
 mostrarCard()
+
+//// Agora vou criar uma função para coletar insights sobre os cards para a dashboard
+
+//variáveis para evitar dados duplicados 
+
+let jaClicou1 = false;
+let jaClicou2 = false;
+let jaClicou3 = false;
+let jaClicou4 = false;
+let jaClicou5 = false;
+
+// para coletar caso a pessoa não clique em nenhum card e clique no CTA (mostra desinteresse no carrossel de cards)
+let nao_clicou = true;
+
+
+// agora as funções vão ser aprimoradas para registrar cliques no banco de dados
+
+function registrarCliqueCard(etapa_card) {
+    fetch("metricas/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            etapaServer: etapa_card,
+            metricaServer: 'cliques_cards'
+        })
+    })
+        .then(function (resposta) {
+            console.log(`Métrica ${etapa_card} Registrada!`)
+        })
+        .catch(function (erro) {
+            console.log(`Erro ao registrar métrica ${etapa_card}`, erro)
+        })
+}
 
 function proximo_card() {
     card_atual++;
@@ -98,6 +154,24 @@ function proximo_card() {
         card_atual = 0;
     }
     mostrarCard();
+
+    if (card_atual == 1 && jaClicou1 == false) {
+        registrarCliqueCard("card_1")
+        jaClicou1 = true
+
+    } else if (card_atual == 2 && jaClicou2 == false) {
+        registrarCliqueCard("card_2")
+        jaClicou2 = true
+    } else if (card_atual == 3 && jaClicou3 == false) {
+        registrarCliqueCard("card_3")
+        jaClicou3 = true
+    } else if (card_atual == 4 && jaClicou4 == false) {
+        registrarCliqueCard("card_4")
+        jaClicou4 = true
+    } else if (card_atual == 0 && jaClicou5 == false) {
+        registrarCliqueCard("card_5")
+        jaClicou5 = true
+    }
 }
 
 function card_anterior() {
@@ -106,4 +180,8 @@ function card_anterior() {
         card_atual = cards.length - 1;
     }
     mostrarCard();
+
 }
+
+
+

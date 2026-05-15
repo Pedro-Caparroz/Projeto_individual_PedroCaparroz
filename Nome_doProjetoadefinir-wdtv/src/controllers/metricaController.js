@@ -5,6 +5,11 @@ function registrarClique(req, res) {
     var etapa = req.body.etapaServer;
     var idUsuario = req.body.idUsuarioServer; // Pode vir undefined se for um clique anônimo na Landing Page
 
+    // 
+    // A única variável que NÃO PODE ser undefined é a 'etapa'. O 'idUsuario' pode ser vazio.
+    // Se a etapa for undefined, devolva um res.status(400). erro (400) que é erro de usuário
+
+
     if (etapa == undefined) {
         res.status(400).send("a etapa não foi registrada!");
     } else {

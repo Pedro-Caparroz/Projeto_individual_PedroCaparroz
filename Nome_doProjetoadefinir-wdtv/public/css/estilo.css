@@ -13,6 +13,13 @@ body {
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
+  --cor-principal: #1a3328;
+  --cor-secundaria: #f0ebe0;
+  --cor-terciaria: #130b09;
+  --cor-quaternaria: #e3b062;
+  --tamanho-max: 1200px;
+
+  font-family: 'Inter', sans-serif;
 }
 
 .container {
@@ -141,8 +148,8 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  background: linear-gradient(to bottom, var(--cor-principal) 90%,
+      rgb(1, 61, 1) 100%);
 }
 
 .login .container {
@@ -209,7 +216,7 @@ body {
 .opcoes_genero {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: start;
 }
 
 .botao {

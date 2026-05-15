@@ -31,8 +31,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
+app.use("/metricas", metricasRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
