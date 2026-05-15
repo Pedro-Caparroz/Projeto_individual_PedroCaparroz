@@ -17,22 +17,22 @@
 </head>
 
 <body>
-  
+
   <header>
     <div class="logo">
-        <img src="./assets/" alt="">
+      <img src="./assets/" alt="">
     </div>
     <div class="div_navbar">
-        <a href="/index.html">Inicial</a>
-        <a href="/login.html">Login</a>
-        <a href="/cadastro.html">Cadastro</a>
+      <a href="/index.html">Inicial</a>
+      <a href="/login.html">Login</a>
+      <a href="/cadastro.html">Cadastro</a>
     </div>
   </header>
 
   <section class="banner_login">
     <div class="card_login" style="width: 500px;">
       <h2>Crie sua conta</h2>
-      
+
       <div class="alerta_erro" id="cardErro">
         <span id="mensagem_erro"></span>
       </div>
@@ -201,10 +201,13 @@
 
         if (resposta.ok) {
           cardErro.style.display = "block";
+          resposta.json().then(json => {
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+            registrar_checkpoint('cadastro_realizado', json.insertdId);
 
+          })
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
@@ -212,7 +215,21 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          cardErro.style.display = "block";
+          resposta.text().then(texto => {
+            if (texto.includes("Duplicate entry")) {
+              mensagem_erro.innerHTML =
+                `Email já cadastrado!`
+              registrar_checkpoint('erro_cadastro');
+              finalizarAguardar();
+            }
+            else {
+              mensagem_erro.innerHTML =
+                `Houve um erro ao tentar realizar o cadastro!`
+              registrar_checkpoint('erro_cadastro');
+              finalizarAguardar();
+            }
+          })
         }
       })
       .catch(function (resposta) {
@@ -245,5 +262,9 @@
 
   function sumirMensagem() {
     cardErro.style.display = "none";
+  }
+
+  window.onload = function () {
+    registrar_checkpoint('acessou_pagina_cadastro');
   }
 </script>

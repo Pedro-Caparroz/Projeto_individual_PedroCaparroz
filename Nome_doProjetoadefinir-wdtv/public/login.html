@@ -33,7 +33,7 @@
     <section class="banner_login">
         <div class="card_login">
             <h2>Olá de volta!</h2>
-            
+
             <div class="alerta_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
             </div>
@@ -102,19 +102,20 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
+                    sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.GENERO = json.genero
-                    sessionStorage.IDADE = json.idade;
+                    sessionStorage.GENERO = json.genero;
+                    sessionStorage.IDADE = json.data_nascimento;
                     sessionStorage.TIPO = json.tipo;
 
                     if (sessionStorage.TIPO == "admin") { // se for admin , manda pra dashboard, 
                         setTimeout(function () {
-                            window.location = "/dashboard/cards.html";
+                            window.location = "../dashboard/dashboard.html";
                         }, 1000);
                     } else { // se não, manda pro quiz
                         setTimeout(function () {
-                            window.location = "../Quiz/EXEMPLO_QUIZZ.html";
+                            window.location = "/Quiz/EXEMPLO_QUIZZ.html";
                         }, 1000);
                     }
 
@@ -126,7 +127,9 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    cardErro.style.display = "block"
+                    mensagem_erro.innerHTML = `${texto}, Tente novamente!`
+                    finalizarAguardar();
                 });
             }
 

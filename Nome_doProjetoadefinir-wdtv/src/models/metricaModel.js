@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function registrarClique(etapa_funil, id_usuario) {
+function registrar_checkpoint(etapa_funil, id_usuario) {
     // Se o id_usuario for undefined (ex: visitante não logado clicou no CTA), 
     // nós inserimos a palavra NULL no banco de dados
     var fk_usuario = id_usuario == undefined ? 'NULL' : id_usuario;
@@ -15,5 +15,5 @@ function registrarClique(etapa_funil, id_usuario) {
 }
 
 module.exports = {
-    registrarClique
+    registrar_checkpoint
 };

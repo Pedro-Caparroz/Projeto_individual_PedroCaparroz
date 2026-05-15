@@ -52,6 +52,8 @@ CREATE TABLE quiz_usuario (
 INSERT INTO usuario (nome, email, senha, tipo, data_nascimento, genero) VALUES 
 ('Administrador', 'admin', 'admin', 'admin', '2000-01-01', 'N');
 
+SELECT * FROM usuario;
+
 -- Consulta soma de acertos e erros agrupados por usuario 
 
 SELECT 

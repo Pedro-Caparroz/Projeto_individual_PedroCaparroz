@@ -1,6 +1,6 @@
 var metricaModel = require("../models/metricaModel");
 
-function registrarClique(req, res) {
+function registrar_checkpoint(req, res) {
     // Extraindo as informações que vêm do Frontend (pelo fetch)
     var etapa = req.body.etapaServer;
     var idUsuario = req.body.idUsuarioServer; // Pode vir undefined se for um clique anônimo na Landing Page
@@ -14,7 +14,7 @@ function registrarClique(req, res) {
         res.status(400).send("a etapa não foi registrada!");
     } else {
 
-        metricaModel.registrarClique(etapa, idUsuario)
+        metricaModel.registrar_checkpoint(etapa, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -32,5 +32,5 @@ function registrarClique(req, res) {
 }
 
 module.exports = {
-    registrarClique
+    registrar_checkpoint
 };
